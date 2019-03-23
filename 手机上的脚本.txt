@@ -1,0 +1,12 @@
+    使用说明：
+无
+    示例：
+无
+    正则式：
+我的%在哪(里)?
+    脚本：
+var db="http://192.168.3.10/?find="
+var thing=args[0]
+speak("在"+http.get(db+thing))
+    脚本语言：
+js
