@@ -1,6 +1,10 @@
+import os
 from flask import Flask, render_template, flash, redirect
 from flask import url_for, request, send_from_directory
 
+
+if os.getcwd() == '/home/landmadename':
+    os.chdir('/home/landmadename/TUTU_find')
 app = Flask(__name__)
 app.secret_key = 'lalalalololo'
 app.config.from_pyfile('settings.py')
