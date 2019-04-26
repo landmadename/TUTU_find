@@ -79,20 +79,20 @@
 
 
 
-**V 0.2.0 开发计划（未完成）:**
+**V 0.2.0 开发计划（完成）:**
 
 主要完成post 和 get操作，数据库和web
 时间原因，先不做终端，放在0.3.0中编写（比如拿走，放进，命令）
 
 1. 数据库(全部基于skey)：
-   - [ ] post --> compare
-   - [ ] post --> remove
-   - [ ] post --> add
-   - [ ] get
+   - [x] post --> compare
+   - [x] post --> remove
+   - [x] post --> add
+   - [x] get
 
 2. web(全部基于skey)：
-   - [ ] post
-   - [ ] get
+   - [x] post
+   - [x] get
    - [ ] 
 
 
