@@ -117,6 +117,7 @@ class db():
             i[-2] = str(time.time())
             i.insert(1, skey)
             insert_one(i)
+        self.conn.commit()
 
     def close(self):
         self.conn.commit()

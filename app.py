@@ -128,10 +128,10 @@ def post():
     except Exception as e:
         return json.dumps({'code': 0,
                            })
-    things = [i for i in things if i[-1] == '']
+    things = [i for i in things if i[-1] != '']
     for i in things:
         try:
-            to_post['+'].append(i[:-1])
+            to_post[i[-1]].append(i[:-1])
         except Exception as e:
             pass
     d.post(args[0], to_post)
