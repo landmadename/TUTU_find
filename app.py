@@ -27,7 +27,6 @@ def load_data(data):
 
     path = []
     things = []
-    data = json.loads(data)
     get_data(data)
     return things
 
@@ -123,11 +122,23 @@ def post():
     if args is False:
         return json.dumps({'code': -1,
                            })
+
     try:
-        things = load_data(args[1])
+        data = json.loads(data)
+        type = data['type']
+	data = data['data']
+        assert type == 'box' or type == 'items'
     except Exception as e:
         return json.dumps({'code': 0,
                            })
+    if type == 'box':
+        try:
+            things = load_data(args[1])
+        except Exception as e:
+            return json.dumps({'code': 0,
+                               })
+    else:
+        things = data
     things = [i for i in things if i[-1] != '']
     for i in things:
         try:
