@@ -124,16 +124,17 @@ def post():
                            })
 
     try:
-        data = json.loads(data)
+        data = json.loads(args[1])
         type = data['type']
-	data = data['data']
+        data = data['data']
         assert type == 'box' or type == 'items'
     except Exception as e:
         return json.dumps({'code': 0,
                            })
     if type == 'box':
         try:
-            things = load_data(args[1])
+            things = load_data(data)
+            print(things)
         except Exception as e:
             return json.dumps({'code': 0,
                                })
@@ -146,4 +147,7 @@ def post():
         except Exception as e:
             pass
     d.post(args[0], to_post)
-    return str(d.get(args[0]))
+    data = d.get(args[0])
+    return json.dumps({'code': 1,
+                       'data': pack(data)
+                       })
