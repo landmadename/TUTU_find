@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "l-tabs": "/lin/tabs/index",
+    "l-tabpanel": "/lin/tabpanel/index",
+    "l-list": "/lin/list/index",
+    "l-popup": "/lin/popup/index",
+    "l-input": "/lin/input/index",
+    "l-button": "/lin/button/index",
+    "l-slide-view": "/lin/slide-view/index"
+  }
+}

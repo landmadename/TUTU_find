@@ -1,0 +1,105 @@
+.tab-content {
+  min-height: 140rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  color: rgba(140, 152, 174, 1);
+}
+
+.panel {
+  width: 500rpx;
+  height: 600rpx;
+  background-color: #fff;
+  padding: 30rpx;
+  padding-top: 50rpx;
+  border-radius: 30rpx;
+  box-shadow: 0 0 0px 10rpx #3963bc inset; 
+}
+
+.three_buttons{
+  display: flex;
+  flex-direction: row;
+}
+
+.a_button{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  padding: 0rpx;
+  align-items: center;
+  background-color: white;
+  border-width: 0rpx;
+}
+
+.a_button::after{
+  border: none; 
+}
+
+.short_input{
+  width: 300rpx;
+}
+
+.container{
+  padding: 30rpx;
+  padding-top: 0rpx;
+}
+
+.blue_bar{
+  position: absolute;
+  height: 32rpx;
+  width: 100rpx;
+  margin-left: 200rpx;
+  margin-right: 200rpx;
+  box-shadow:  0rpx 10rpx 0rpx 0rpx #3963bc; 
+}
+
+.add{
+  position: absolute;
+  bottom: 50rpx;
+  right: 50rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.choose{
+  height: 100rpx;
+  width: 660rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.choose_folder{
+  height: 100rpx;
+  width: 330rpx;
+  background-color: #00ff15;
+}
+
+.choose_item{
+  height: 100rpx;
+  width: 330rpx;
+  background-color: #cc00ff;
+  color: white;
+}
+
+.drawer{
+  width: 688rpx;
+  height: 550rpx;
+  background-color: #fff;
+  padding: 30rpx;
+  padding-top: 50rpx;
+  border-radius: 30rpx;
+  border-bottom-left-radius: 0rpx;
+  border-bottom-right-radius: 0rpx;
+  box-shadow: 0 0 0px 10rpx #3963bc; 
+}
+
+.drawer_opener{
+  position: absolute;
+  bottom: 0rpx;
+  right: 335rpx;
+  width: 80rpx;
+  height: 64rpx;
+}

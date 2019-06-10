@@ -1,0 +1,21 @@
+.container{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner{
+  width: 300rpx;
+  height: 300rpx;
+  margin: 50rpx;
+  border-radius: 50%;
+}
+
+.card{
+  width: 650rpx;
+  background-color: #e3eafa;
+  border-radius: 30rpx;
+  padding: 30rpx;
+  margin-top: 50rpx;
+}

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "l-input": "/lin/input/index",
+    "l-textarea": "/lin/textarea/index",
+    "l-button": "/lin/button/index"
+  }
+}

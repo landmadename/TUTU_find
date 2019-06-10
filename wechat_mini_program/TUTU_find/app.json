@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/edit/edit",
+    "pages/find/find",
+    "pages/settings/settings"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/find/find",
+        "text": "find",
+        "iconPath": "/images/search.png",
+        "selectedIconPath": "/images/search.png"
+      },
+      {
+        "pagePath": "pages/edit/edit",
+        "text": "edit",
+        "iconPath": "/images/edit.png",
+        "selectedIconPath": "/images/edit.png"
+      },
+      {
+        "pagePath": "pages/settings/settings",
+        "text": "settings",
+        "iconPath": "/images/settings.png",
+        "selectedIconPath": "/images/settings.png"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#3963bc",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "TUTU find",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
+  "usingComponents": {
+    "l-icon": "/lin/icon/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

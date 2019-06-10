@@ -1,0 +1,132 @@
+<view style='height:95vh;' class='container'>
+  <l-tabs bind:linchange="logSite" l-class-header="l-class-header" l-class-active="l-class-active" placement="top" scrollable equal-width="{{false}}" swipeable="true" active-key="{{path.length-1}}">
+    <l-tabpanel wx:for="{{path}}" wx:for-item="name" wx:for-index="i" tab="/   {{name}}   /" key="{{i}}" slot="{{i}}" wx:key="{{i}}">
+    <scroll-view scroll-y style='height:90vh;'>
+    <view wx:for="{{tabs[i]}}" wx:for-item="item" wx:for-index="index">
+    <view wx:if="{{item[1][1]=='__init__'}}">
+        <view style='font-weight:bold;font-size:40rpx;'>在此路径下添加一个新的：</view>
+        <view style='padding:20rpx;'></view>
+    <view class='choose'>
+      <l-button width="310" height="100" type='success' shape="semicircle" bind:lintap='add_folder_in_new_folder' data-data="{{item[1]}}">
+        <view style='font-weight:bold;font-size:40rpx;'>容器</view>
+      </l-button>
+      <l-button width="310" height="100" type='warning' shape="semicircle" bind:lintap='add_item_in_new_folder' data-data="{{item[1]}}">
+        <view style='font-weight:bold;font-size:40rpx;'>东西</view>
+      </l-button>
+      </view>
+    </view>
+      <l-list wx:if="{{item[0] == 0}}" title="{{item[1]}}" icon="order" id="{{item[1]}}" bind:lintap="changePath" bind:longpress="folder_panel_show">
+      </l-list>
+      <l-list wx:if="{{item[0] == 1 && item[1][1]!='__init__'}}" title="{{item[1][1]}}   {{item[1][2]}}个" icon="ellipsis" bind:lintap="popEdit" data-data="{{item[1]}}">
+      </l-list>
+    </view>
+    </scroll-view>
+    </l-tabpanel>
+  </l-tabs>
+
+
+  <l-popup show="{{add_folder_show}}" content-align="center">
+    <view class="panel">
+      <form bindsubmit='add_folder'>
+        <view style='font-weight:bold;font-size:40rpx;padding-left:27rpx;padding-bottom:10rpx;'>请输入要新建的容器</view> 
+        <view style='height:50rpx;'></view>
+        <l-input label="容器名:" name="name" width="500"/>
+        <view style='height:250rpx;'></view>
+        <view class="three_buttons">
+          <view class='blue_bar'></view>
+          <button class='a_button' form-type='submit' ><image src='/images/ok.png' style='width:75rpx;height:75rpx;'></image></button>
+        </view>
+    </form>
+
+    </view>
+  </l-popup>
+
+
+  <l-popup show="{{edit_folder_show}}" content-align="center">
+    <view class="panel">
+      <form bindsubmit='edit_folder_name'>
+        <view style='font-weight:bold;font-size:40rpx;padding-left:27rpx;padding-bottom:10rpx;'>修改容器名称</view> 
+        <view style='font-weight:bold;font-size:40rpx;padding-left:27rpx;padding-bottom:10rpx;'>或者删除该容器</view> 
+        <view style='height:50rpx;'></view>
+        <l-input label="修改为:" name="name" width="500"/>
+        <view style='height:250rpx;'></view>
+        <view class="three_buttons">
+          <button class='a_button' form-type='submit'><image src='/images/ok.png' style='width:75rpx;height:75rpx;'></image></button>
+          <button class='a_button' bindtap='tap_reset_path'><image src='/images/reset.png' style='width:75rpx;height:75rpx;'></image></button>
+          <button class='a_button' bindtap='delete_folder'><image src='/images/delete.png' style='width:75rpx;height:75rpx;'></image></button>
+        </view>
+    </form>
+
+    </view>
+  </l-popup>
+
+
+
+  <l-popup show="{{reset_path_show}}" content-align="center">
+    <view class="panel">
+      <form bindsubmit='reset_path'>
+        <view style='font-weight:bold;font-size:40rpx;padding-left:27rpx;padding-bottom:10rpx;'>移动容器(换位置)</view> 
+        <view style='font-weight:bold;font-size:30rpx;padding-left:30rpx;padding-bottom:10rpx;'>把当前容器放在一个新位置</view> 
+        <view style='font-weight:bold;font-size:30rpx;padding-left:30rpx;padding-bottom:10rpx;'>假设你刚刚长按了“冰箱”，想给冰箱换个位置，想放在家里的厨房里。你需要在下面填入  家里$厨房  (多个路径用$分隔，路径不存在会自动生成)</view> 
+        <view style='height:50rpx;'></view>
+        <l-input label="移动到:" name="name" width="500"/>
+        <view style='height:110rpx;'></view>
+        <view class="three_buttons">
+          <view class='blue_bar'></view>
+          <button class='a_button' form-type='submit'><image src='/images/ok.png' style='width:75rpx;height:75rpx;'></image></button>
+        </view>
+    </form>
+
+    </view>
+  </l-popup>
+
+
+
+  <l-popup show="{{add_item_show}}" content-align="center">
+    <view class="panel">
+      <form bindsubmit='add_item'>
+        <l-input label="名字:" name="name" width="500"/>
+        <l-input label="数量:" name="count" width="500"/>
+        <l-input label="保质期 从:" name="from_" width="500"/>
+        <l-input label="保质期 到:" name="to_" width="500"/>
+        <view style='height:150rpx;'></view>
+        <view class="three_buttons">
+          <view class='blue_bar'></view>
+          <button class='a_button' form-type='submit' ><image src='/images/ok.png' style='width:75rpx;height:75rpx;'></image></button>
+        </view>
+      </form>
+    </view>
+  </l-popup>
+  
+
+  <l-popup show="{{edit_show}}" content-align="center">
+    <view class="panel">
+      <form bindsubmit="edit_item">
+        <l-input label="名字:" name="name" value="{{to_edit[1]}}" width="500"/>
+        <l-input label="数量:" name="count" value="{{to_edit[2]}}" width="500"/>
+        <l-input label="保质期 从:" name="from_" value="{{to_edit[3]}}" width="500"/>
+        <l-input label="保质期 到:" name="to_" value="{{to_edit[4]}}" width="500"/>
+        <view style='height:150rpx;'></view>
+        <view class="three_buttons">
+          <view class='blue_bar'></view>
+          <button class='a_button' form-type='submit' ><image src='/images/ok.png' style='width:75rpx;height:75rpx;'></image></button>
+          <button class='a_button' bindtap='delete_item'><image src='/images/delete.png' style='width:75rpx;height:75rpx;'></image></button>
+        </view>
+      </form>
+    </view>
+  </l-popup>
+
+  <l-popup show="{{draw_show}}" content-align="bottom" > 
+    <view class="drawer" scrollable> 
+      <scroll-view scroll-y style='height:530rpx;'>
+        <l-list wx:for="{{sorted_data}}" wx:for-item="item" wx:for-index="index" title="{{item[1]}}" icon="ellipsis" bindtap="tap_sorted_item" desc="{{item[6]}}" data-path="{{item[5]}}">
+        </l-list>
+      </scroll-view>
+    </view>
+  </l-popup>
+
+
+</view>
+
+<image src='/images/add.png' class='add' bindtap='add'></image>
+<image src='/images/drawer_opener.png' class='drawer_opener' bindtap='tap_drawer_opener'></image>

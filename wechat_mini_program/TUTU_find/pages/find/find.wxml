@@ -1,0 +1,26 @@
+<view class='container'>
+  <image src="/images/rabit_ear.jpg" class='banner'></image>
+  <text style='font-weight:bold;font-size:60rpx;'>TUTU find</text>
+
+  <l-search-bar placeholder="找一下" shape="circle" bg-color="#e3eafa" bind:linconfirm="search" show-cancel="{{false}}"/>
+
+  <view class="card" wx:if="{{code==-1}}">
+    <view style='font-weight:bold;font-size:30rpx;padding-bottom:10rpx;'>参数错误！</view>
+  </view>
+
+  <view class="card" wx:if="{{code==0}}">
+    <view style='font-weight:bold;font-size:30rpx;padding-bottom:10rpx;'>您要找的是哪个?</view>
+    <l-list  wx:for="{{similar_names}}" title="{{item}}" bind:lintap="search_by_click" data-name="{{item}}"></l-list>
+  </view>
+
+
+  <view class="card" wx:if="{{code==1}}">
+    <view style='font-weight:bold;font-size:30rpx;padding-bottom:10rpx;'>{{found_name}}:</view>
+    <l-list  wx:for="{{found_places}}" title="在 {{item}}" bindtap='navigate' data-path='{{item}}'></l-list>
+  </view>
+
+  <view class="card" wx:if="{{code==2}}">
+    <view style='font-weight:bold;font-size:30rpx;padding-bottom:10rpx;'>您要找到东西不存在!</view>
+  </view>
+
+</view>

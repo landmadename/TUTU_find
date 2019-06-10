@@ -1,0 +1,19 @@
+/* pages/settings/settings.wxss */
+
+.container{
+  padding: 30rpx;
+}
+
+.card{
+  padding: 30rpx;
+  border-radius: 30rpx;
+  box-shadow: 0 0 3rpx 10rpx #3963bc; 
+}
+
+.title{
+  margin-bottom: 30rpx;
+  border-radius: 30rpx;
+  color: rgb(97, 97, 97)9f7;
+  padding: 10rpx;
+  background-color:#e3e9f7;
+}

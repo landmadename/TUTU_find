@@ -1,0 +1,54 @@
+{
+  "appAdList": [],
+  "instList": [
+    {
+      "action": {
+        "actionScopeType": 1,
+        "actionScript": "var server = \"http://47.100.40.72:30001/find\"\nvar sth = argMap['sth']\nvar mode = \"0\"\nvar skey = \"test key\"\nvar data = http.post(server, {'sth': sth,'skey': skey,'mode': mode})\ndata = data.split(\"\\'\").join(\"\\\"\")\ndata = JSON.parse(data)\nswitch (data['code']) {\n    case -1:\n        speak('有东西没填')\n        break;\n    case 0:\n        speak('你要找的是哪个？' + data['similar_names'].join('，还是'))\n        break;\n    case 1:\n        speak(data['name'] + '在' + data['places'].join('，和'))\n        break;\n    case 2:\n        speak('找不到诶')\n        break;      \n    default:\n        break;\n}",
+        "priority": 0,
+        "scriptType": "js"
+      },
+      "actionId": 43,
+      "actionScopeType": 1,
+      "actionTitle": "TuTu_find",
+      "follows": [],
+      "from": "from_user",
+      "priority": 0,
+      "publishUserId": 2504,
+      "regs": [
+        {
+          "nodeId": 43,
+          "regStr": "@{sth}在(哪|哪儿|哪里|什么地方)"
+        }
+      ],
+      "versionCode": 0
+    },
+    {
+      "action": {
+        "actionScopeType": 1,
+        "actionScript": "//把@{num}个@{sth}放(在|进)@{path}\n//把@{sth}放(在|进)@{path}\n\nvar server = \"http://47.100.40.72:30001/post\"\nvar sth = argMap['sth']\nvar path = argMap['path']\nvar num = argMap['num']\nvar mode = \"0\"\nvar skey = \"test key\"\nvar data\n\n\nfunction ChineseToNumber(chnStr){\n    var rtn = 0;\n    var section = 0;\n    var number = 0;\n    var secUnit = false;\n    if(chnStr[0] == '十'){\n        chnStr = '一' + chnStr;\n    }\n    var str = chnStr.split('');\n    var chnNumChar = {\n        零:0,\n        一:1,\n        二:2,\n        三:3,\n        四:4,\n        五:5,\n        六:6,\n        七:7,\n        八:8,\n        九:9\n    };\n\n    var chnNameValue = {\n        十:{value:10, secUnit:false},\n        百:{value:100, secUnit:false},\n        千:{value:1000, secUnit:false},\n        万:{value:10000, secUnit:true},\n        亿:{value:100000000, secUnit:true}\n    }\n\n\n    for(var i = 0; i < str.length; i++){\n        var num = chnNumChar[str[i]];\n        if(typeof num !== 'undefined'){\n            number = num;\n            if(i === str.length - 1){\n                section += number;\n            }\n        }else{\n            var unit = chnNameValue[str[i]].value;\n            secUnit = chnNameValue[str[i]].secUnit;\n            if(secUnit){\n                section = (section + number) * unit;\n                rtn += section;\n                section = 0;\n            }else{\n                section += (number * unit);\n            }\n            number = 0;\n        }\n    }\n    return rtn + section;\n}\n\n\nif(!!num && isNaN(num)){\n    num = ChineseToNumber(num)\n}else{\n    num = (parseInt(num) || 1)\n}\npath = path.split('的')\nvar item = [0,\n            sth,\n            num,\n            \"\",\n            \"\",\n            \"in_time\",\n            '',\n            '+']\nitem.splice(5, 0, path.join(\"$\"))\ndata = JSON.stringify({\"type\": \"items\", \"data\": [item]})\ndata = http.post(server, {\"skey\": skey, \"data\": data})\ndata = JSON.parse(data)\nswitch (data['code']) {\n    case -1:\n        speak('有东西没填')\n        break;\n    case 0:\n        speak('出错嘞')\n        break;\n    case 1:\n        speak('OKOK')\n        break;      \n    default:\n        break;\n}",
+        "priority": 0,
+        "scriptType": "js"
+      },
+      "actionId": 45,
+      "actionScopeType": 1,
+      "actionTitle": "TuTu_post",
+      "follows": [],
+      "from": "from_user",
+      "priority": 0,
+      "publishUserId": 2504,
+      "regs": [
+        {
+          "nodeId": 45,
+          "regStr": "把@{num}个@{sth}放(在|进)@{path}"
+        },
+        {
+          "nodeId": 45,
+          "regStr": "把@{sth}放(在|进)@{path}"
+        }
+      ],
+      "versionCode": 0
+    }
+  ],
+  "markedDataList": []
+}

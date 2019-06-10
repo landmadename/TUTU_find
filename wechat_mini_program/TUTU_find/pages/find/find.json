@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "l-search-bar": "/lin/search-bar/index",
+    "l-list": "/lin/list/index"
+  }
+}
