@@ -85,11 +85,11 @@
 
          1. 点击编辑页面下的这个按钮
 
-            > ![1560137789169](C:\CODE\python\TEMP\TUTU_find\imgs\1560137789169.jpg)
+            > ![1560137789169](https://github.com/landmadename/TUTU_find/blob/master/imgs/1560137789169.jpg)
 
          2. 会有弹出的抽屉，按时间顺序排列新建的东西，点击即可跳转，进行编辑
 
-            > ![1560138118443](C:\CODE\python\TEMP\TUTU_find\imgs\1560138118443.jpg)
+            > ![1560138118443](https://github.com/landmadename/TUTU_find/blob/master/imgs/1560138118443.jpg)
 
 #### 正式使用！
 
@@ -99,7 +99,7 @@
 
    2. 在第三页设置页中找到：
 
-      > ![1560138687840](C:\CODE\python\TEMP\TUTU_find\imgs\1560138687840.jpg)
+      > ![1560138687840](https://github.com/landmadename/TUTU_find/blob/master/imgs/1560138687840.jpg)
 
    3. 在上面的框中按要求填入使用的服务器的域名，也可以不修改，使用公用服务器。
 
@@ -131,11 +131,11 @@
 
          2. 新建成功：
 
-            > ![1560144551475](C:\CODE\python\TEMP\TUTU_find\imgs\1560144551475.jpg)
+            > ![1560144551475](https://github.com/landmadename/TUTU_find/blob/master/imgs/1560144551475.jpg)
 
          3. 可以点击 “东西”按钮以新建一个东西
 
-            > ![1560144874749](C:\CODE\python\TEMP\TUTU_find\imgs\1560144874749.png)
+            > ![1560144874749](https://github.com/landmadename/TUTU_find/blob/master/imgs/1560144874749.png)
 
          4. 也可以点击“容器”以嵌套容器
 
@@ -147,7 +147,7 @@
 
          1. 点击这个  东西
 
-            > ![1560145133241](C:\CODE\python\TEMP\TUTU_find\imgs\1560145133241.png)
+            > ![1560145133241](https://github.com/landmadename/TUTU_find/blob/master/imgs/1560145133241.png)
 
          2. 如果要删除，点击红色按钮
 
@@ -157,7 +157,7 @@
 
          1. 长按该容器即可重命名或删除
 
-            > ![1560145334792](C:\CODE\python\TEMP\TUTU_find\imgs\1560145334792.png)
+            > ![1560145334792](https://github.com/landmadename/TUTU_find/blob/master/imgs/1560145334792.png)
 
          2. 移动容器
 
@@ -165,11 +165,11 @@
             2. 按要求操作
             3. 图解:
 
-            > ![1560145567966](C:\CODE\python\TEMP\TUTU_find\imgs\1560145567966.png)
+            > ![1560145567966](https://github.com/landmadename/TUTU_find/blob/master/imgs/1560145567966.png)
             >
-            > ![1560145612410](C:\CODE\python\TEMP\TUTU_find\imgs\1560145612410.png)
+            > ![1560145612410](https://github.com/landmadename/TUTU_find/blob/master/imgs/1560145612410.png)
             >
-            > ![1560145670177](C:\CODE\python\TEMP\TUTU_find\imgs\1560145670177.png)
+            > ![1560145670177](https://github.com/landmadename/TUTU_find/blob/master/imgs/1560145670177.png)
 
 
 
