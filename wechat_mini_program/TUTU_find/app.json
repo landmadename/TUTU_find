@@ -8,19 +8,19 @@
     "list": [
       {
         "pagePath": "pages/find/find",
-        "text": "find",
+        "text": "查找",
         "iconPath": "/images/search.png",
         "selectedIconPath": "/images/search.png"
       },
       {
         "pagePath": "pages/edit/edit",
-        "text": "edit",
+        "text": "编辑",
         "iconPath": "/images/edit.png",
         "selectedIconPath": "/images/edit.png"
       },
       {
         "pagePath": "pages/settings/settings",
-        "text": "settings",
+        "text": "设置",
         "iconPath": "/images/settings.png",
         "selectedIconPath": "/images/settings.png"
       }
